@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.17",
     "@emotion/react": "^11.11.1",
     "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.11.0",
@@ -16,6 +17,8 @@
     "@types/node": "20.4.5",
     "@types/react": "18.2.17",
     "@types/react-dom": "18.2.7",
+    "graphql": "^16.7.1",
+    "graphql-tag": "^2.12.6",
     "next": "13.4.12",
     "react": "18.2.0",
     "react-dom": "18.2.0",
