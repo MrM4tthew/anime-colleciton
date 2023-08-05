@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import Layout from "../src/layout";
-import { StyledAnimeList } from "./style";
-import { Typography } from "@mui/material";
+import {
+  StyledAnimeItem,
+  StyledAnimeList,
+  StyledAnimeListContainer,
+  StyledImageContainer,
+} from "./style";
 import { useQuery } from "@apollo/client";
-import Pagination from "@mui/material/Pagination";
-import CircularProgress from "@mui/material/CircularProgress";
+import { Pagination, Skeleton } from "@mui/material";
 import GetAnime from "./graphql/animeList";
 import Image from "next/image";
 import { PopularAnimeData } from "./types";
@@ -13,7 +16,7 @@ import Link from "next/link";
 const index = () => {
   const [page, setPage] = useState(1);
   const { loading, error, data } = useQuery<PopularAnimeData>(GetAnime, {
-    variables: { page, perPage: 10 },
+    variables: { page, perPage: 8 },
   });
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -24,22 +27,33 @@ const index = () => {
 
   return (
     <Layout>
-      {/* <Typography variant='h5'>Anime List</Typography> */}
-      {/* <StyledAnimeList>
-        <Typography variant='h5'>Anime List</Typography>
-      </StyledAnimeList> */}
       {loading ? (
-        <CircularProgress />
+        <Skeleton
+          animation="pulse"
+          variant="rectangular"
+          width="100%"
+          height={400}
+        />
       ) : (
-        data?.Page.media.map(({ id, title, coverImage }) => (
-          <div key={id}>
-            <Link href={`/AnimeDetail/${id}`}>
-              <Image src={coverImage?.medium} width={500} height={300} alt="anime image" />
-              <h3>{title.english || title.romaji}</h3>
-              <p>{title.native}</p>
-            </Link>
-          </div>
-        ))
+        <StyledAnimeListContainer>
+          {data?.Page.media.map(({ id, title, coverImage }) => (
+            <StyledAnimeItem key={id}>
+              <Link href={`/AnimeDetail/${id}`}>
+                <StyledImageContainer>
+                  <Image
+                    src={coverImage?.large}
+                    layout="fill" 
+                    objectFit="cover"
+                    quality={100}
+                    alt="anime image"
+                  />
+                </StyledImageContainer>
+                <h3>{title.english || title.romaji}</h3>
+                <p>{title.native}</p>
+              </Link>
+            </StyledAnimeItem>
+          ))}
+        </StyledAnimeListContainer>
       )}
 
       <Pagination

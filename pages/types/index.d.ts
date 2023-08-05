@@ -4,7 +4,7 @@ interface Title {
   native: string;
 }
 interface CoverImage {
-  medium: string;
+  large: string;
 }
 interface Media {
   id: number;
