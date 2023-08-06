@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import Layout from "../src/layout";
 import {
   StyledAnimeItem,
-  StyledAnimeList,
   StyledAnimeListContainer,
   StyledImageContainer,
-} from "./style";
+} from "@/style";
 import { useQuery } from "@apollo/client";
 import { Pagination, Skeleton } from "@mui/material";
-import GetAnime from "./graphql/animeList";
+import GetAnime from "../src/graphql/animeList";
 import Image from "next/image";
 import { PopularAnimeData } from "./types";
 import Link from "next/link";

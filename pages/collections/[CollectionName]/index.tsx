@@ -3,17 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/layout";
 import { useRouter } from "next/router";
-import { useContext, useMemo, useState } from "react";
+import { useContext, useState } from "react";
 import {
   StyledAnimeItem,
   StyledAnimeListContainer,
   StyledImageContainer,
-} from "../../style";
+} from "@/style";
 import { Button } from "@mui/material";
 import {
   StyledCollectionTitle,
   StyledCollectionTitleContainer,
-} from "../style";
+} from "@/style";
 import NewCollectionModal from "@/components/NewCollectionModal";
 import { Delete as DeleteIcon } from "@mui/icons-material";
 

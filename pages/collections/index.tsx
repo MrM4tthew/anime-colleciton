@@ -5,7 +5,7 @@ import {
   StyledAnimeItem,
   StyledAnimeListContainer,
   StyledImageContainer,
-} from "../style";
+} from "@/style";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@mui/material";
