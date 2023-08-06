@@ -1,10 +1,12 @@
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
+
 interface Title {
   romaji: string;
   english: string;
   native: string;
 }
 interface CoverImage {
-  large: string;
+  large: string | StaticImport;
 }
 interface Media {
   id: number;

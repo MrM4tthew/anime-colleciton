@@ -9,7 +9,6 @@ import {
   StyledAnimeListContainer,
   StyledImageContainer,
 } from "../../style";
-import HoverableItem from "@/components/HoverableItem";
 import { Button } from "@mui/material";
 import {
   StyledCollectionTitle,
@@ -75,9 +74,9 @@ const index = () => {
         {currentCollection?.items.map((item) => (
           <StyledAnimeItem>
             <Link href={`/AnimeDetail/${item.id}`}>
-              <StyledImageContainer>
+              <StyledImageContainer>    
                 <Image
-                  src={item.imageUrl}
+                  src={item?.imageUrl}
                   layout="fill"
                   objectFit="cover"
                   quality={100}

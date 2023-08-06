@@ -24,22 +24,6 @@ const index = () => {
   });
 
   const data = dataRaw?.Media;
-  const foundedData = currentList?.find((dt) => dt.id === data?.id);
-
-  console.log({ currentList, foundedData });
-
-  // const handleAdd = () => {
-  //   if (foundedData) {
-  //     removeAnime(data?.id)
-  //   } else {
-  //     addAnime({
-  //       id: data?.id,
-  //       name: data?.title.english,
-  //       imageUrl: data?.coverImage.large,
-  //       animeLink: `AnimeDetail/${data?.id}`,
-  //     })
-  //   }
-  // }
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;

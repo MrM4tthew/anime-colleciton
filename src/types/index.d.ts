@@ -1,3 +1,4 @@
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { Media } from "../../pages/types";
 
 export interface AnimeCollectionProps {
@@ -7,7 +8,7 @@ export interface AnimeCollectionProps {
 export interface Anime {
   id: Number | undefined;
   name: String | undefined;
-  imageUrl: String | undefined;
+  imageUrl: string | StaticImport;
   animeLink: String;
 }
 
@@ -22,14 +23,14 @@ export type AnimeCollectionContextType = {
   currentList: AnimeCollection[];
   createCollection: (newCollection: AnimeCollection) => void;
   addAnimeToCollection: (newAnime: Anime, collectionName: String | undefined) => void;
-  removeCollection: (collectionName: String) => void;
-  removeAnimeFromCollection: (animeId: Number | undefined, collectionName: String) => void;
+  removeCollection: (collectionName: String | undefined) => void;
+  removeAnimeFromCollection: (animeId: Number | undefined, collectionName: String | String[] | undefined) => void;
   editCollection: (newName: String | undefined, collectionName: String | String[] | undefined) => void;
 };
 
 export interface CollectionModal {
   handleClose: () => void;
-  collectionName: String | String[] | undefined;
+  collectionName?: String | String[] | undefined;
   isOpen: boolean;
   isEdit: boolean;
 }

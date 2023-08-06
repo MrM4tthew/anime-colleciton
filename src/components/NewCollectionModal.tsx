@@ -12,7 +12,7 @@ const NewCollectionModal = ({
   isOpen,
   isEdit,
 }: CollectionModal) => {
-  const [values, setValues] = useState<String>();
+  const [values, setValues] = useState<string>();
   const [error, setError] = useState({
     status: false,
     message: "",
@@ -31,7 +31,7 @@ const NewCollectionModal = ({
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    const hasSpecialCharacters = /[^a-zA-Z0-9\s]/.test(values);
+    const hasSpecialCharacters = values ? /[^a-zA-Z0-9\s]/.test(values) : false;
 
     console.log({hasSpecialCharacters, values})
     if (hasSpecialCharacters) {

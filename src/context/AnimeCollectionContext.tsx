@@ -24,7 +24,12 @@ const AnimeCollectionProvider = ({ children }: AnimeCollectionProps) => {
   const [currentList, setCurrentList] = useState<AnimeCollection[]>([]);
 
   useEffect(() => {
-    const currentData = JSON.parse(localStorage.getItem("animeCollection"));
+    let currentData = null;
+    const item = localStorage.getItem("animeCollection");
+
+    if(item !== null) {
+      currentData = JSON.parse(item);
+    }
     setCurrentList(currentData);
   }, []);
 
@@ -57,7 +62,7 @@ const AnimeCollectionProvider = ({ children }: AnimeCollectionProps) => {
     setAnimeCollection([...animeCollection]);
   };
 
-  const removeCollection = (collectionName: String) => {
+  const removeCollection = (collectionName: String | undefined) => {
     const selectedIndex =
       animeCollection?.findIndex((item) => item.name === collectionName) || 0;
     animeCollection.splice(selectedIndex, 1);
@@ -67,7 +72,7 @@ const AnimeCollectionProvider = ({ children }: AnimeCollectionProps) => {
 
   const removeAnimeFromCollection = (
     animeId: Number | undefined,
-    collectionName: String
+    collectionName: String | String[] | undefined
   ) => {
     const selectedCollection = animeCollection.find(
       (anime) => anime.name === collectionName

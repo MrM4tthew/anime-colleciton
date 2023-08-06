@@ -2,18 +2,12 @@ import { SaveCollectionModal } from "@/types";
 import {
   Box,
   Button,
-  Dialog,
-  DialogContent,
-  DialogTitle,
   FormControl,
-  IconButton,
   InputLabel,
   MenuItem,
   Modal,
   Select,
-  Typography,
 } from "@mui/material";
-import { Close as CloseIcon } from "@mui/icons-material";
 import React, { useContext, useState } from "react";
 import { AnimeCollectionContext } from "@/context/AnimeCollectionContext";
 import { StyledButtonsContainer, StyledForm } from "@/style";
@@ -34,7 +28,7 @@ const SaveToCollectionModal = ({
       {
         id: animeData?.id,
         name: animeData?.title.english,
-        imageUrl: animeData?.coverImage.large,
+        imageUrl: animeData?.coverImage.large || "",
         animeLink: `/AnimeDetail/${animeData?.id}`,
       },
       pickedCollection
@@ -84,6 +78,7 @@ const SaveToCollectionModal = ({
             >
               {currentList.map((dt) => {
                 if (!dt.items.find((item) => item.id === animeData?.id)) {
+                  // @ts-ignore
                   return <MenuItem value={dt.name}>{dt.name}</MenuItem>;
                 }
 
