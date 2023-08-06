@@ -1,16 +1,16 @@
 import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useQuery } from "@apollo/client";
+import { Pagination, Skeleton } from "@mui/material";
 import Layout from "../src/layout";
+import GetAnime from "../src/graphql/animeList";
+import { PopularAnimeData } from "./types";
 import {
   StyledAnimeItem,
   StyledAnimeListContainer,
   StyledImageContainer,
 } from "@/style";
-import { useQuery } from "@apollo/client";
-import { Pagination, Skeleton } from "@mui/material";
-import GetAnime from "../src/graphql/animeList";
-import Image from "next/image";
-import { PopularAnimeData } from "./types";
-import Link from "next/link";
 
 const index = () => {
   const [page, setPage] = useState(1);

@@ -1,6 +1,5 @@
-import React from "react";
-import { StyledHeader, StyledHeaderContainer } from "./style";
 import Link from "next/link";
+import { StyledHeader, StyledHeaderContainer } from "./style";
 
 const Header = () => {
   return (

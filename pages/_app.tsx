@@ -1,6 +1,6 @@
+import type { AppProps } from "next/app";
 import { ApolloProvider } from "@apollo/client";
 import { Global, css } from "@emotion/react";
-import type { AppProps } from "next/app";
 import client from '../apolloClient'
 import AnimeCollectionProvider from "@/context/AnimeCollectionContext";
 

@@ -1,10 +1,10 @@
+import { createContext, useState, useEffect } from "react";
 import {
   AnimeCollectionContextType,
   AnimeCollectionProps,
   AnimeCollection,
   Anime,
 } from "@/types";
-import React, { createContext, useState, useEffect, ReactNode } from "react";
 
 export const AnimeCollectionContext = createContext<AnimeCollectionContextType>(
   {
@@ -89,8 +89,6 @@ const AnimeCollectionProvider = ({ children }: AnimeCollectionProps) => {
       (item) => item.name === collectionName
     ) || {name: ""};
     selectedCollection.name = newName;
-
-    console.log({ animeCollection, newName, selectedCollection }, "col oi");
     setAnimeCollection([...animeCollection]);
   };
 

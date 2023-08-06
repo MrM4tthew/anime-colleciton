@@ -1,21 +1,19 @@
-import { AnimeCollectionContext } from "@/context/AnimeCollectionContext";
-import Image from "next/image";
-import Link from "next/link";
-import Layout from "@/layout";
-import { useRouter } from "next/router";
 import { useContext, useState } from "react";
-import {
-  StyledAnimeItem,
-  StyledAnimeListContainer,
-  StyledImageContainer,
-} from "@/style";
+import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@mui/material";
-import {
-  StyledCollectionTitle,
-  StyledCollectionTitleContainer,
-} from "@/style";
-import NewCollectionModal from "@/components/NewCollectionModal";
+import { useRouter } from "next/router";
 import { Delete as DeleteIcon } from "@mui/icons-material";
+import Layout from "@/layout";
+import { AnimeCollectionContext } from "@/context/AnimeCollectionContext";
+import NewCollectionModal from "@/components/NewCollectionModal";
+import {
+    StyledAnimeItem,
+    StyledAnimeListContainer,
+    StyledImageContainer,
+    StyledCollectionTitle,
+    StyledCollectionTitleContainer,
+  } from "@/style";
 
 const index = () => {
   const [isOpen, setIsOpen] = useState(false);

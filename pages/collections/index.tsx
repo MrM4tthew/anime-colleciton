@@ -1,16 +1,17 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@mui/material";
+import { Delete as DeleteIcon } from "@mui/icons-material";
 import Layout from "@/layout";
 import { AnimeCollectionContext } from "@/context/AnimeCollectionContext";
+import NewCollectionModal from "@/components/NewCollectionModal";
 import {
   StyledAnimeItem,
   StyledAnimeListContainer,
   StyledImageContainer,
 } from "@/style";
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@mui/material";
-import NewCollectionModal from "@/components/NewCollectionModal";
-import { Delete as DeleteIcon } from "@mui/icons-material";
+
 
 const index = () => {
   const [isOpen, setIsOpen] = useState(false);

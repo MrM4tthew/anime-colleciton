@@ -1,13 +1,13 @@
-import { useQuery } from "@apollo/client";
-import { useRouter } from "next/router";
-import Layout from "../../../src/layout";
-import { AnimeDetailData } from "./types";
-import GET_ANIME_DETAIL from "../../../src/graphql/getAnimeDetail";
-import { StyledAnimeTitleContainer } from "@/style";
 import { useContext, useState } from "react";
-import { AnimeCollectionContext } from "@/context/AnimeCollectionContext";
 import { Button } from "@mui/material";
+import { useRouter } from "next/router";
+import { useQuery } from "@apollo/client";
+import { AnimeDetailData } from "./types";
+import Layout from "../../../src/layout";
+import GET_ANIME_DETAIL from "../../../src/graphql/getAnimeDetail";
+import { AnimeCollectionContext } from "@/context/AnimeCollectionContext";
 import SaveToCollectionModal from "@/components/SaveToCollectionModal";
+import { StyledAnimeTitleContainer } from "@/style";
 
 const index = () => {
   const [isOpen, setIsOpen] = useState(false);

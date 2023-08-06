@@ -1,10 +1,9 @@
+import { useContext, useState } from "react";
+import { useRouter } from "next/router";
+import { Box, Button, Modal, TextField } from "@mui/material";
+import { CollectionModal } from "@/types";
 import { AnimeCollectionContext } from "@/context/AnimeCollectionContext";
 import { StyledButtonsContainer, StyledForm } from "@/style";
-import { CollectionModal } from "@/types";
-import { breakpoints } from "@/utilities/constants";
-import { Box, Button, Modal, TextField } from "@mui/material";
-import { useRouter } from "next/router";
-import { useContext, useState } from "react";
 
 const NewCollectionModal = ({
   handleClose,
@@ -27,13 +26,9 @@ const NewCollectionModal = ({
     setValues(event.target.value);
   };
 
-  console.log({ collectionName });
-
   const handleSubmit = (event: any) => {
     event.preventDefault();
     const hasSpecialCharacters = values ? /[^a-zA-Z0-9\s]/.test(values) : false;
-
-    console.log({hasSpecialCharacters, values})
     if (hasSpecialCharacters) {
       setError({
         status: true,

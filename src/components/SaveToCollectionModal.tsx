@@ -1,4 +1,4 @@
-import { SaveCollectionModal } from "@/types";
+import React, { useContext, useState } from "react";
 import {
   Box,
   Button,
@@ -8,7 +8,7 @@ import {
   Modal,
   Select,
 } from "@mui/material";
-import React, { useContext, useState } from "react";
+import { SaveCollectionModal } from "@/types";
 import { AnimeCollectionContext } from "@/context/AnimeCollectionContext";
 import { StyledButtonsContainer, StyledForm } from "@/style";
 
